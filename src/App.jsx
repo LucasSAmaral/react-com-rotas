@@ -3,6 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 import {Link} from 'react-router-dom';
 
+const valor = 10;
+
 class App extends Component {
   render() {
     return (
@@ -14,7 +16,7 @@ class App extends Component {
 
           <p>Página Principal</p>
 
-            <Link to="/sobre">Ir para página Sobre.</Link>
+            <Link to={`/sobre/${valor}`}>Ir para página Sobre.</Link>
 
         </header>
       </div>
