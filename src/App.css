@@ -31,3 +31,18 @@
     transform: rotate(360deg);
   }
 }
+
+.btn {
+  border: none;
+  padding: 10px 12px;
+  cursor: pointer;
+  background-color: blue;
+  color: white;
+  border-radius: 3px;
+  transition: 2s;
+  margin-bottom: 10px;
+}
+
+.btn:hover{
+  background-color: navy;
+}

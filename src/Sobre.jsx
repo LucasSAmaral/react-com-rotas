@@ -10,6 +10,20 @@ const receiveURL = () => {
 }
 
 class App extends Component {
+
+  constructor(){
+    super();
+    this.state = {
+      click: 0
+    }
+  }
+
+  updateClick() {
+    this.setState((prevState) => {
+      return { click: prevState.click + 1}
+    });
+  }
+
   componentDidMount(){
     setTimeout(()=>{
       receiveURL();
@@ -26,6 +40,8 @@ class App extends Component {
           <p>
             Exemplo de página Sobre.
           </p>
+
+          <button className="btn" onClick={()=>this.updateClick()}>Clicou {this.state.click} {this.state.click <= 1? 'vez' : 'vezes'}</button>
 
           <Link to="/">Ir para Home.</Link>
           
