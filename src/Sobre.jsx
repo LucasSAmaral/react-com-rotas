@@ -48,7 +48,7 @@ class App extends Component {
             Exemplo de página Sobre.
           </p>
 
-          <button className="btn" onClick={()=>this.updateClick()}>Clicou {this.state.click} {this.state.click <= 1? 'vez' : 'vezes'}</button>
+          <button className="btn" onClick={()=>this.updateClick()}>Clicou {this.state.click === 0 ? 'nenhuma vez' : this.state.click === 1 ? `${this.state.click} vez` : `${this.state.click} vezes`}</button>
           <button className={`btn ${this.state.open === true ? 'open' : 'close'}`} onClick={()=>this.changeOpen()}>{this.state.open === false ? 'Vermelho' : 'Verde'}</button>
           <Link to="/">Ir para Home.</Link>
           
