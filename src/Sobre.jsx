@@ -14,7 +14,8 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      click: 0
+      click: 0,
+      open: false
     }
   }
 
@@ -22,6 +23,12 @@ class App extends Component {
     this.setState((prevState) => {
       return { click: prevState.click + 1}
     });
+  }
+
+  changeOpen() {
+    this.setState((prevState) => {
+      return { open: !prevState.open}
+    })
   }
 
   componentDidMount(){
@@ -42,7 +49,7 @@ class App extends Component {
           </p>
 
           <button className="btn" onClick={()=>this.updateClick()}>Clicou {this.state.click} {this.state.click <= 1? 'vez' : 'vezes'}</button>
-
+          <button className={`btn ${this.state.open === true ? 'open' : 'close'}`} onClick={()=>this.changeOpen()}>{this.state.open === false ? 'Vermelho' : 'Verde'}</button>
           <Link to="/">Ir para Home.</Link>
           
         </header>
