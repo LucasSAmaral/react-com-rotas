@@ -17,6 +17,10 @@ class Sobre extends Component {
       click: 0,
       open: false
     }
+    // atribui o bind this à função.
+    // Caso não seja feito no constructor, pode ser feito no próprio onClick
+    //Dessa maneira: {()=>this.changeOpen()}
+    this.changeOpen = this.changeOpen.bind(this);
   }
 
   updateClick() {
@@ -49,7 +53,7 @@ class Sobre extends Component {
           </p>
 
           <button className="btn" onClick={()=>this.updateClick()}>Clicou {this.state.click === 0 ? 'nenhuma vez' : this.state.click === 1 ? `${this.state.click} vez` : `${this.state.click} vezes`}</button>
-          <button className={`btn ${this.state.open === true ? 'open' : 'close'}`} onClick={()=>this.changeOpen()}>{this.state.open === false ? 'Vermelho' : 'Verde'}</button>
+          <button className={`btn ${this.state.open === true ? 'open' : 'close'}`} onClick={this.changeOpen}>{this.state.open === false ? 'Vermelho' : 'Verde'}</button>
           <Link to="/">Ir para Home.</Link>
           
         </header>
