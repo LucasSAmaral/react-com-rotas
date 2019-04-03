@@ -15,7 +15,8 @@ class Sobre extends Component {
     super();
     this.state = {
       click: 0,
-      open: false
+      open: false,
+      activeContrast: false
     }
     // atribui o bind this à função.
     // Caso não seja feito no constructor, pode ser feito no próprio onClick
@@ -35,6 +36,12 @@ class Sobre extends Component {
     })
   }
 
+  Contrast() {
+    this.setState((prevState) => {
+      return { activeContrast: !prevState.activeContrast}
+    })
+  }
+
   componentDidMount(){
     setTimeout(()=>{
       receiveURL();
@@ -42,7 +49,7 @@ class Sobre extends Component {
   }
   render() {
     return (
-      <div className="App">
+      <div className={`App ${this.state.activeContrast === true ? 'contrast' : ''}`}>
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
 
@@ -54,6 +61,7 @@ class Sobre extends Component {
 
           <button className="btn" onClick={()=>this.updateClick()}>Clicou {this.state.click === 0 ? 'nenhuma vez' : this.state.click === 1 ? `${this.state.click} vez` : `${this.state.click} vezes`}</button>
           <button className={`btn ${this.state.open === true ? 'open' : 'close'}`} onClick={this.changeOpen}>{this.state.open === false ? 'Vermelho' : 'Verde'}</button>
+          <button className="btn" onClick={()=>this.Contrast()}>Contrast</button>
           <Link to="/">Ir para Home.</Link>
           
         </header>
